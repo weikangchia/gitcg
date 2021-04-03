@@ -39,7 +39,9 @@
   ],
   "homepage": "https://github.com/weikangchia/gitcg",
   "keywords": [
-    "oclif"
+    "oclif",
+    "gitlab",
+    "changelog"
   ],
   "license": "MIT",
   "main": "lib/index.js",
