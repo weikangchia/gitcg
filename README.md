@@ -1,19 +1,14 @@
-gcg
-===
+# gcg
 
+## Getting Started
 
+### GitLab
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/gcg.svg)](https://npmjs.org/package/gcg)
-[![Downloads/week](https://img.shields.io/npm/dw/gcg.svg)](https://npmjs.org/package/gcg)
-[![License](https://img.shields.io/npm/l/gcg.svg)](https://github.com/weikangchia/gcg/blob/master/package.json)
+- Get a personal token (scopes: `read_api`)
+- Store it as a environment variable
+  ```export GITLAB_TOKNE=<your personal gitlab token>```
 
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
-# Usage
-<!-- usage -->
+### Usage
 ```sh-session
 $ npm install -g gcg
 $ gcg COMMAND
@@ -25,10 +20,212 @@ USAGE
   $ gcg COMMAND
 ...
 ```
-<!-- usagestop -->
-# Commands
-<!-- commands -->
 
-<!-- commandsstop -->
+## Configuration Options
 
-NODE_ENV=local bin/run
+**gcg** reads all configurable options from `gcg-config.json`. Below are the available configurable options.
+
+- [service](#service)
+- [serviceUrl](#serviceUrl)
+- [sections](#sections)
+  - [title](#title)
+  - [labels](#labels)
+- [enableContributorsSection](#enableContributorsSection)
+- [contributorsToExclude](#contributorsToExclude)
+- [contributorTitle](#contributorTitle)
+- [enableExternalIssuesTracker](#enableExternalIssuesTracker)
+- [externalIssuesUrl](#externalIssuesUrl)
+- [externalIssuesProjects](#externalIssuesProjects)
+
+### service
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | string |
+| mandatory | true |
+| supportedValues | gitlab |
+
+
+Example
+```json
+{
+  "service": "gitlab"
+}
+```
+
+### serviceUrl
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | string |
+| mandatory | true |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com"
+}
+```
+
+### sections
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | array |
+| mandatory | false |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "sections": []
+}
+```
+
+#### title
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | string |
+| parent    | sections |
+| mandatory | true |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "sections": [
+    {
+      "title": ":star2: New Features",
+      "labels": ["feature"]
+    }
+  ]
+}
+```
+
+#### labels
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | string |
+| parent    | sections |
+| mandatory | true |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "sections": [
+    {
+      "title": ":star2: New Features",
+      "labels": ["feature"]
+    }
+  ]
+}
+```
+
+### enableContributorsSection
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | boolean |
+| mandatory | false |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "enableContributorsSection": true,
+  "contributorTitle": ":heart: Contributors\nWe'd like to thank all the contributors who worked on this sprint!"
+}
+```
+
+### contributorsToExclude
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | array |
+| mandatory | false |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "enableContributorsSection": true,
+  "contributorsToExclude": ["user1", "user2"],
+}
+```
+
+### contributorTitle
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | string |
+| mandatory | false |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "enableContributorsSection": true,
+  "contributorTitle": ":heart: Contributors\nWe'd like to thank all the contributors who worked on this sprint!"
+}
+```
+
+### enableExternalIssuesTracker
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | array |
+| mandatory | false |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "enableExternalIssuesTracker": true
+}
+```
+
+### externalIssuesUrl
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | string |
+| mandatory | false |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "enableExternalIssuesTracker": true,
+  "externalIssuesUrl": "https://youtrack.com/issues",
+}
+```
+
+### externalIssuesProjects
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | array |
+| mandatory | false |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "enableExternalIssuesTracker": true,
+  "externalIssuesUrl": "https://youtrack.com/issues",
+  "externalIssuesProjects": ["PROJ1", "PROJ2"],
+}
+```

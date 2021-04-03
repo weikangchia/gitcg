@@ -14,11 +14,9 @@ class Gcg extends Command {
     projectPath: flags.string({ description: 'path to project' }),
   };
 
-  static args = [{ name: 'file' }];
-
   applyIfLocalEnvironment() {
-    console.log(`You are running ${process.env.NODE_ENV} environment`);
     if (process.env.NODE_ENV === 'local') {
+      console.log(`You are running ${process.env.NODE_ENV} environment`);
       dotenv.config();
     }
   }
@@ -28,7 +26,7 @@ class Gcg extends Command {
 
     const { args, flags } = this.parse(Gcg);
 
-    const config = read('./config.json');
+    const config = read('./gcg-config.json');
 
     const gitService = new GitFactory(config).create();
 
