@@ -1,0 +1,58 @@
+{
+  "name": "gcg",
+  "version": "0.0.1",
+  "author": "Wei Kang @weikangchia",
+  "bin": {
+    "gcg": "./bin/run"
+  },
+  "bugs": "https://github.com/weikangchia/gcg/issues",
+  "dependencies": {
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "@oclif/plugin-help": "^3.2.2",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
+    "tslib": "^1.14.1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.26.0",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^10.17.56",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.9"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/weikangchia/gcg",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "gcg"
+  },
+  "repository": "weikangchia/gcg",
+  "scripts": {
+    "posttest": "eslint . --ext .ts --config .eslintrc.js",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev readme",
+    "test": "jest",
+    "version": "oclif-dev readme && git add README.md",
+    "prettier-format": "prettier --config .prettierrc.js 'src/**/*.ts' --write"
+  },
+  "types": "lib/index.d.ts"
+}
