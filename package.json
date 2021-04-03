@@ -1,11 +1,11 @@
 {
-  "name": "gcg",
+  "name": "gitcg",
   "version": "0.0.0",
   "author": "Wei Kang @weikangchia",
   "bin": {
-    "gcg": "./bin/run"
+    "gitcg": "./bin/run"
   },
-  "bugs": "https://github.com/weikangchia/gcg/issues",
+  "bugs": "https://github.com/weikangchia/gitcg/issues",
   "dependencies": {
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
@@ -37,16 +37,16 @@
     "/bin",
     "/lib"
   ],
-  "homepage": "https://github.com/weikangchia/gcg",
+  "homepage": "https://github.com/weikangchia/gitcg",
   "keywords": [
     "oclif"
   ],
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
-    "bin": "gcg"
+    "bin": "gitcg"
   },
-  "repository": "weikangchia/gcg",
+  "repository": "weikangchia/gitcg",
   "scripts": {
     "posttest": "eslint . --ext .ts --config .eslintrc.js",
     "prepack": "rm -rf lib && tsc -b",

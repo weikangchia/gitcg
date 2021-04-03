@@ -6,7 +6,7 @@ import { read } from './configReader';
 import ChangelogGenerator = require('./changelogGenerator');
 import GitFactory = require('./gitFactory');
 
-class Gcg extends Command {
+class GitCG extends Command {
   static description = 'Gitlab Changelog Generator';
 
   static flags = {
@@ -24,9 +24,9 @@ class Gcg extends Command {
   async run() {
     this.applyIfLocalEnvironment();
 
-    const { args, flags } = this.parse(Gcg);
+    const { args, flags } = this.parse(GitCG);
 
-    const config = read('./gcg-config.json');
+    const config = read('./gitcg-config.json');
 
     const gitService = new GitFactory(config).create();
 
@@ -37,4 +37,4 @@ class Gcg extends Command {
   }
 }
 
-export = Gcg;
+export = GitCG;

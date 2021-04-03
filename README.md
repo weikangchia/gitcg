@@ -1,4 +1,4 @@
-# gcg
+# gitcg
 
 ## Getting Started
 
@@ -10,20 +10,18 @@
 
 ### Usage
 ```sh-session
-$ npm install -g gcg
-$ gcg COMMAND
+$ npm install -g gitcg
+$ gitcg COMMAND
 running command...
-$ gcg (-v|--version|version)
-gcg/0.0.1 darwin-x64 node-v12.16.3
-$ gcg --help [COMMAND]
+$ gitcg --help [COMMAND]
 USAGE
-  $ gcg COMMAND
+  $ gitcg COMMAND
 ...
 ```
 
 ## Configuration Options
 
-**gcg** reads all configurable options from `gcg-config.json`. Below are the available configurable options.
+**gitcg** reads all configurable options from `gitcg-config.json`. Below are the available configurable options.
 
 - [service](#service)
 - [serviceUrl](#serviceUrl)
