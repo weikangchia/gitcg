@@ -1,0 +1,16 @@
+*-debug.log
+*-error.log
+/.nyc_output
+/dist
+/lib
+/tmp
+/yarn.lock
+node_modules
+.env
+src/gitcg-config.json
+.editorconfig
+.env.example
+.eslintrc.js
+.prettierrc.js
+jest.config.js
+tsconfig.json
