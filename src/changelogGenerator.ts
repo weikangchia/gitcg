@@ -1,4 +1,4 @@
-import GitService = require('./gitService')
+import GitService = require('./gitService');
 import Config = require('./interfaces/config');
 import ConfigSection = require('./interfaces/configSection');
 import MergeRequest = require('./interfaces/milestone');
