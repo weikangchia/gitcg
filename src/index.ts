@@ -6,12 +6,15 @@ import { read } from './configReader';
 import ChangelogGenerator = require('./changelogGenerator');
 import GitFactory = require('./gitFactory');
 
+import path = require('path');
+
 class GitCG extends Command {
   static description = 'Gitlab Changelog Generator';
 
   static flags = {
     milestone: flags.string({ char: 'm', description: 'title of milestone' }),
     projectPath: flags.string({ description: 'path to project' }),
+    config: flags.string({ description: 'path to config' }),
   };
 
   applyIfLocalEnvironment() {
@@ -26,7 +29,7 @@ class GitCG extends Command {
 
     const { args, flags } = this.parse(GitCG);
 
-    const config = read('./gitcg-config.json');
+    const config = read(path.resolve(__dirname, (flags.config = 'gitcg-config.json')));
 
     const gitService = new GitFactory(config).create();
 
