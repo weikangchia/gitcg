@@ -6,7 +6,7 @@
 
 - Get a personal token (scopes: `read_api`)
 - Store it as a environment variable
-  ```export GITLAB_TOKNE=<your personal gitlab token>```
+  ```export GITLAB_TOKEN=<your personal gitlab token>```
 
 ### Usage
 ```sh-session
