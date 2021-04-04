@@ -3,8 +3,8 @@ import GitLabService = require('../src/gitlab/gitlabService');
 import Config = require('../src/interfaces/config');
 
 describe('GitFactory', () => {
-  describe('Create gitService from service name in config', () => {
-    test('When service is empty, then should throw error that is is not a supported git service', () => {
+  describe('Create gitService using service name in config', () => {
+    test('When service name is empty, then should throw error that is is not a supported git service', () => {
       const config: Config = {
         service: '',
         serviceUrl: '',
