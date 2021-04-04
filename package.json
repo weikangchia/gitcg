@@ -1,6 +1,6 @@
 {
   "name": "gitcg",
-  "version": "0.0.1-1",
+  "version": "0.0.2-0",
   "author": "Wei Kang @weikangchia",
   "bin": {
     "gitcg": "./bin/run"
