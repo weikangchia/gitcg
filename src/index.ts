@@ -29,7 +29,7 @@ class GitCG extends Command {
 
     const { args, flags } = this.parse(GitCG);
 
-    const config = read(path.resolve(__dirname, (flags.config = 'gitcg-config.json')));
+    const config = read(path.join(this.config.configDir, flags.config || 'config.json'));
 
     const gitService = new GitFactory(config).create();
 

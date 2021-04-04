@@ -21,7 +21,15 @@ USAGE
 
 ## Configuration Options
 
-**gitcg** reads all configurable options from `gitcg-config.json`. Below are the available configurable options.
+By default **gitcg** reads all configurable options from `config.json` at the following location
+
+```
+Unix: ~/.config/gitcg
+Windows: %LOCALAPPDATA%\gitcg
+Can be overridden with XDG_CONFIG_HOME
+```
+
+ Below are the available configurable options.
 
 - [service](#service)
 - [serviceUrl](#serviceUrl)
