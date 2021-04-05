@@ -214,7 +214,7 @@ Example
   "service": "gitlab",
   "serviceUrl": "https://gitlab.com",
   "enableExternalIssuesTracker": true,
-  "externalIssuesUrl": "https://youtrack.com/issues",
+  "externalIssuesUrl": "https://youtrack.com/issue",
 }
 ```
 
@@ -231,7 +231,7 @@ Example
   "service": "gitlab",
   "serviceUrl": "https://gitlab.com",
   "enableExternalIssuesTracker": true,
-  "externalIssuesUrl": "https://youtrack.com/issues",
+  "externalIssuesUrl": "https://youtrack.com/issue",
   "externalIssuesProjects": ["PROJ1", "PROJ2"],
 }
 ```
