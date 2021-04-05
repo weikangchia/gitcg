@@ -63,11 +63,11 @@ class ChangelogGenerator {
 
   generateExternalIssuesSectionIfEnabled(mergeRequestTitle: string): string {
     if (this.#config.enableExternalIssuesTracker) {
-      for (const youtrackProject of (this.#config.externalIssuesProjects = [])) {
+      for (const youtrackProject of this.#config.externalIssuesProjects || []) {
         const issueTrackerRegexPattern = new RegExp(`(${youtrackProject}-([1-9][0-9]*))`, 'gm');
         const issueTrackerRegexResult = mergeRequestTitle.match(issueTrackerRegexPattern);
         if (issueTrackerRegexResult) {
-          return `<br/>${this.#config.externalIssuesUrl}/issues/${issueTrackerRegexResult[0]}`;
+          return `<br/>${this.#config.externalIssuesUrl}/${issueTrackerRegexResult[0]}`;
         }
       }
     }
