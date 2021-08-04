@@ -9,12 +9,12 @@ import GitFactory = require('./gitFactory');
 import path = require('path');
 
 class GitCG extends Command {
-  static description = 'Gitlab Changelog Generator';
+  static description = 'GitLab Changelog Generator';
 
   static flags = {
     milestone: flags.string({ char: 'm', description: 'title of milestone' }),
-    projectPath: flags.string({ description: 'path to project' }),
-    config: flags.string({ description: 'path to config' }),
+    projectPath: flags.string({ char: 'p', description: 'path to project' }),
+    config: flags.string({ description: 'custom config file name (default is config.json)' }),
   };
 
   applyIfLocalEnvironment() {
@@ -27,7 +27,7 @@ class GitCG extends Command {
   async run() {
     this.applyIfLocalEnvironment();
 
-    const { args, flags } = this.parse(GitCG);
+    const { flags } = this.parse(GitCG);
 
     const config = read(path.join(this.config.configDir, flags.config || 'config.json'));
 
