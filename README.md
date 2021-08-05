@@ -42,6 +42,7 @@ Can be overridden with XDG_CONFIG_HOME
 - [enableExternalIssuesTracker](#enableExternalIssuesTracker)
 - [externalIssuesUrl](#externalIssuesUrl)
 - [externalIssuesProjects](#externalIssuesProjects)
+- [enableCommitSha](#enableCommitSha)
 
 ### service
 
@@ -233,5 +234,21 @@ Example
   "enableExternalIssuesTracker": true,
   "externalIssuesUrl": "https://youtrack.com/issue",
   "externalIssuesProjects": ["PROJ1", "PROJ2"],
+}
+```
+
+### enableCommitSha
+
+| Name        | Value           |
+| ------------- |-------------|
+| type      | boolean |
+| mandatory | false |
+
+Example
+```json
+{
+  "service": "gitlab",
+  "serviceUrl": "https://gitlab.com",
+  "enableCommitSha": true
 }
 ```
