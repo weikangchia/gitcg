@@ -51,6 +51,7 @@ class ChangelogGenerator {
 
       mergeRequestSections[section].forEach((mergeRequestTitle) => {
         mergeRequestsContent = mergeRequestsContent.concat(`- ${mergeRequestTitle}`);
+
         mergeRequestsContent = mergeRequestsContent.concat(
           this.generateExternalIssuesSectionIfEnabled(mergeRequestTitle),
         );
@@ -86,7 +87,15 @@ class ChangelogGenerator {
 
       mergeRequests.forEach((mergeRequest) => {
         if (section.labels.some((label) => mergeRequest.labels.includes(label))) {
-          mergeRequestSections[section.title].push(mergeRequest.title);
+          let title = mergeRequest.title;
+
+          if (this.#config.enableCommitSha) {
+            title = title.concat(
+              ` (${this.#gitService.getCommitUrl(mergeRequest.commitSha ?? '', this.#projectPath)})`,
+            );
+          }
+
+          mergeRequestSections[section.title].push(title);
         }
       });
     });

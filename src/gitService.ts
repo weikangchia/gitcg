@@ -9,6 +9,8 @@ abstract class GitService {
   }
 
   abstract getMergeRequests(milestone: string, projectPath: string): Promise<Array<MergeRequest>>;
+
+  abstract getCommitUrl(commitSha: string, projectPath: string): string;
 }
 
 export = GitService;

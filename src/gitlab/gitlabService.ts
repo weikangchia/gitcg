@@ -1,7 +1,11 @@
+import Url = require('url');
+import Path = require('path');
+
 import GitService = require('../gitService');
-import { gql, GraphQLClient } from 'graphql-request';
 import Config = require('../interfaces/config');
 import MergeRequest = require('../interfaces/milestone');
+
+import { gql, GraphQLClient } from 'graphql-request';
 
 class GitLabService extends GitService {
   #client: GraphQLClient;
@@ -33,6 +37,7 @@ class GitLabService extends GitService {
                   title
                 }
               }
+              mergeCommitSha
             }
           }
         }
@@ -49,8 +54,16 @@ class GitLabService extends GitService {
         title: mergeRequest.title,
         labels,
         participants,
+        commitSha: mergeRequest.mergeCommitSha,
       };
     });
+  }
+
+  getCommitUrl(commitSha: string, projectPath: string): string {
+    const commitUrl = new Url.URL(this.config.serviceUrl);
+    commitUrl.pathname = Path.join(projectPath, '-', 'commit', commitSha);
+
+    return commitUrl.toString();
   }
 }
 

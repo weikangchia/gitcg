@@ -10,6 +10,7 @@ interface Config {
   externalIssuesUrl?: string;
   externalIssuesProjects?: Array<string>;
   enableExternalIssuesTracker?: boolean;
+  enableCommitSha?: boolean;
 }
 
 export = Config;
