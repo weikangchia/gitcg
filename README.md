@@ -1,5 +1,7 @@
 # gitcg
 
+A customizable changelog generator for GitLab using milestone.
+
 ## Getting Started
 
 ### GitLab
