@@ -1,8 +1,16 @@
-# gitcg
+# Git Changelog Generator
 
-A customizable changelog generator for GitLab using milestone.
+**gitcg** is a customizable changelog generator for GitLab using milestone.
 
 ## Getting Started
+
+### Pre-requisites
+
+- Install [node](https://nodejs.org/en/download/)
+- Install gitcg
+  ```
+  npm install -g gitcg
+  ```
 
 ### GitLab
 
@@ -12,13 +20,18 @@ A customizable changelog generator for GitLab using milestone.
 
 ### Usage
 ```sh-session
-$ npm install -g gitcg
-$ gitcg COMMAND
-running command...
-$ gitcg --help [COMMAND]
-USAGE
-  $ gitcg COMMAND
-...
+USAGE:
+    gitcg
+
+OPTIONS:
+    -m, --milestone=milestone        title of milestone
+    -p, --projectPath=projectPath    path to project
+    --config=config                  custom config file name (default is config.json)
+```
+
+**Examples**
+```
+gitcg -m "Milestone 1" -p "khubite/test"
 ```
 
 ## Configuration Options
@@ -254,3 +267,14 @@ Example
   "enableCommitSha": true
 }
 ```
+
+## License
+
+Distributed under the MIT License. See [LICENSE](license) for more information.
+
+## Contributing
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+## Contact
+
+Wei Kang - weikangchia@gmail.com
