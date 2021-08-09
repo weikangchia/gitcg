@@ -1,6 +1,7 @@
 {
   "name": "gitcg",
   "version": "0.0.8",
+  "description": "Customizable Changelog Generator for GitLab using Milestone",
   "author": "Wei Kang @weikangchia",
   "bin": {
     "gitcg": "./bin/run"
@@ -39,9 +40,13 @@
   ],
   "homepage": "https://github.com/weikangchia/gitcg",
   "keywords": [
-    "oclif",
     "gitlab",
-    "changelog"
+    "typescript",
+    "tools",
+    "developer-tools",
+    "milestone",
+    "changelog-generator",
+    "oclif",
   ],
   "license": "MIT",
   "main": "lib/index.js",
