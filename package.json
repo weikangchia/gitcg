@@ -1,7 +1,7 @@
 {
   "name": "gitcg",
   "version": "0.0.9",
-  "description": "Customizable Changelog Generator for GitLab using Milestone",
+  "description": "Customizable Changelog Generator for GitLab and GitHub using Milestone",
   "author": "Wei Kang @weikangchia",
   "bin": {
     "gitcg": "./bin/run"
@@ -41,6 +41,7 @@
   "homepage": "https://github.com/weikangchia/gitcg",
   "keywords": [
     "gitlab",
+    "github",
     "typescript",
     "tools",
     "developer-tools",

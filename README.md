@@ -1,6 +1,6 @@
 # Git Changelog Generator
 
-**gitcg** is a customizable changelog generator for GitLab using milestone.
+**gitcg** is a customizable changelog generator for GitLab and GitHub using milestone.
 
 ## Getting Started
 
@@ -16,7 +16,12 @@
 
 - Get a personal token (scopes: `read_api`)
 - Store it as a environment variable
-  ```export GITLAB_TOKEN=<your personal gitlab token>```
+  ```export GITLAB_TOKEN=<your personal GitLab token>```
+
+### GitHub
+- Get a personal token (scopes: `repo`)
+- Store it as a environment variable
+  ```export GITHUB_TOKEN=<your personal GitHub token>```
 
 ### Usage
 ```sh-session
@@ -65,7 +70,7 @@ Can be overridden with XDG_CONFIG_HOME
 | ------------- |-------------|
 | type      | string |
 | mandatory | true |
-| supportedValues | gitlab |
+| supportedValues | gitlab, github |
 
 
 Example
