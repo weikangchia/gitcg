@@ -9,7 +9,7 @@ import GitFactory = require('./gitFactory');
 import path = require('path');
 
 class GitCG extends Command {
-  static description = 'GitLab Changelog Generator';
+  static description = 'Git Changelog Generator';
 
   static flags = {
     milestone: flags.string({ char: 'm', description: 'title of milestone' }),
