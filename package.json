@@ -1,6 +1,6 @@
 {
   "name": "gitcg",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Customizable Changelog Generator for GitLab and GitHub using Milestone",
   "author": "Wei Kang @weikangchia",
   "bin": {
