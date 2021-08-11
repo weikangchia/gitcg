@@ -6,7 +6,6 @@ import Config = require('../interfaces/config');
 import MergeRequest = require('../interfaces/milestone');
 
 import { gql, GraphQLClient } from 'graphql-request';
-import { exit } from 'process';
 
 class GitLabService extends GitService {
   #client: GraphQLClient;
@@ -46,9 +45,11 @@ class GitLabService extends GitService {
     `;
 
     const data = await this.#client.request(query);
-    
-    if(data.project === null) {
-      console.error('Unable to retrieve data from your GitLab, please check that your GitLab token, projectPath and your serviceUrl are correct.');
+
+    if (data.project === null) {
+      console.error(
+        'Unable to retrieve data from your GitLab, please check that your GitLab token, projectPath and your serviceUrl are correct.',
+      );
       process.exit(1);
     }
 

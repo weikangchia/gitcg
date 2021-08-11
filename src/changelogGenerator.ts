@@ -90,9 +90,9 @@ class ChangelogGenerator {
           let title = mergeRequest.title;
 
           if (this.#config.enableCommitSha) {
-            title = title.concat(
-              ` (${this.#gitService.getCommitUrl(mergeRequest.commitSha ?? '', this.#projectPath)})`,
-            );
+            const commitUrl = this.#gitService.getCommitUrl(mergeRequest.commitSha ?? '', this.#projectPath);
+
+            title = title.concat(` ${this.#gitService.getCommitPart(mergeRequest.commitSha ?? '', commitUrl)}`);
           }
 
           mergeRequestSections[section.title].push(title);
