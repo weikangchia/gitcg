@@ -35,8 +35,22 @@ OPTIONS:
 ```
 
 **Examples**
+
+1. GitHub repo (e.g. https://github.com/weikangchia/gitcg)
 ```
-gitcg -m "Milestone 1" -p "khubite/test"
+gitcg -m "v0.1.0" -p "weikangchia/gitcg"
+```
+2. GitLab repo (e.g. https://gitlab.com/weikangchia/gitcg)
+```
+gitcg -m "v0.1.0" -p "weikangchia/gitcg"
+```
+3. Other config files<br/>
+   If you are managing multiple repo or projects and have different configuration, you could create different configuration files in the config folder and use them.
+```
+gitcg -m "v0.1.0" -p "weikangchia/gitcg" --config="config-github.json"
+```
+```
+gitcg -m "v0.1.0" -p "weikangchia/gitcg" --config="config-gitlab.json"
 ```
 
 ## Configuration Options
