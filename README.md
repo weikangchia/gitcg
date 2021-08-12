@@ -63,41 +63,6 @@ Windows: %LOCALAPPDATA%\gitcg
 Can be overridden with XDG_CONFIG_HOME
 ```
 
-**Example**
-```
-{
-  "service": "github",
-  "serviceUrl": "https://github.com",
-  "sections": [
-    {
-      "title": ":star2: New Features",
-      "labels": ["feature"]
-    },  
-    {
-      "title": ":bug: Bug Fixes",
-      "labels": ["bug"]
-    },
-    {
-      "title": ":barber: Tasks",
-      "labels": ["task"]
-    },
-    {
-      "title": ":lock: Security Fixes",
-      "labels": ["security"]
-    },
-    {
-      "title": ":arrow_up: Dependency Upgrades",
-      "labels": ["dependency-upgrade"]
-    }
-  ],
-  "enableContributorsSection": true,
-  "contributorsToExclude": ["renovate_bot"],
-  "contributorTitle": ":heart: Contributors\nWe'd like to thank all the contributors who worked on this milestone!",
-  "enableExternalIssuesTracker": false,
-  "enableCommitSha": true
-}
-```
-
 Below are the available configurable options.
 
 - [service](#service)
@@ -318,6 +283,41 @@ Example
 {
   "service": "gitlab",
   "serviceUrl": "https://gitlab.com",
+  "enableCommitSha": true
+}
+```
+
+**Example**
+```
+{
+  "service": "github",
+  "serviceUrl": "https://github.com",
+  "sections": [
+    {
+      "title": ":star2: New Features",
+      "labels": ["feature"]
+    },  
+    {
+      "title": ":bug: Bug Fixes",
+      "labels": ["bug"]
+    },
+    {
+      "title": ":barber: Tasks",
+      "labels": ["task"]
+    },
+    {
+      "title": ":lock: Security Fixes",
+      "labels": ["security"]
+    },
+    {
+      "title": ":arrow_up: Dependency Upgrades",
+      "labels": ["dependency-upgrade"]
+    }
+  ],
+  "enableContributorsSection": true,
+  "contributorsToExclude": ["renovate_bot"],
+  "contributorTitle": ":heart: Contributors\nWe'd like to thank all the contributors who worked on this milestone!",
+  "enableExternalIssuesTracker": false,
   "enableCommitSha": true
 }
 ```
