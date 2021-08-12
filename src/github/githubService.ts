@@ -1,11 +1,10 @@
-import Url = require('url');
-import Path = require('path');
+import * as path from 'path';
+import { gql, GraphQLClient } from 'graphql-request';
 
 import GitService = require('../gitService');
 import Config = require('../interfaces/config');
 import MergeRequest = require('../interfaces/milestone');
-
-import { gql, GraphQLClient } from 'graphql-request';
+import { ConsoleWriter } from 'istanbul-lib-report';
 
 class GitHubService extends GitService {
   #client: GraphQLClient;
@@ -63,12 +62,7 @@ class GitHubService extends GitService {
       process.exit(1);
     }
 
-    if (data.repository === null) {
-      console.error(
-        'Unable to retrieve data from your GitHub, please check that your GitHub token, projectPath and your serviceUrl are correct.',
-      );
-      process.exit(1);
-    }
+    this.validateRequestData(data);
 
     const pullRequests = data.repository.milestones.nodes[0].pullRequests.nodes;
 
@@ -86,10 +80,21 @@ class GitHubService extends GitService {
   }
 
   getCommitUrl(commitSha: string, projectPath: string): string {
-    const commitUrl = new Url.URL(this.config.serviceUrl);
-    commitUrl.pathname = Path.join(projectPath, 'commit', commitSha);
+    return new URL(path.join(projectPath, 'commit', commitSha), this.config.serviceUrl).toString();
+  }
 
-    return commitUrl.toString();
+  private validateRequestData(data: any): void {
+    if (data.repository === null) {
+      console.error(
+        'Unable to retrieve data from your GitHub, please check that your GitHub token, projectPath and your serviceUrl are correct.',
+      );
+      process.exit(1);
+    }
+
+    if (data.repository.milestones.nodes.length === 0) {
+      console.log('Unable to find your milestone');
+      process.exit(1);
+    }
   }
 }
 

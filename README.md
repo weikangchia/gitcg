@@ -35,8 +35,22 @@ OPTIONS:
 ```
 
 **Examples**
+
+1. GitHub repo (e.g. https://github.com/weikangchia/gitcg)
 ```
-gitcg -m "Milestone 1" -p "khubite/test"
+gitcg -m "v0.1.0" -p "weikangchia/gitcg"
+```
+2. GitLab repo (e.g. https://gitlab.com/weikangchia/gitcg)
+```
+gitcg -m "v0.1.0" -p "weikangchia/gitcg"
+```
+3. Other config files<br/>
+   If you are managing multiple repo or projects and have different configuration, you could create different configuration files in the config folder and use them.
+```
+gitcg -m "v0.1.0" -p "weikangchia/gitcg" --config="config-github.json"
+```
+```
+gitcg -m "v0.1.0" -p "weikangchia/gitcg" --config="config-gitlab.json"
 ```
 
 ## Configuration Options
@@ -49,7 +63,7 @@ Windows: %LOCALAPPDATA%\gitcg
 Can be overridden with XDG_CONFIG_HOME
 ```
 
- Below are the available configurable options.
+Below are the available configurable options.
 
 - [service](#service)
 - [serviceUrl](#serviceUrl)
@@ -269,6 +283,41 @@ Example
 {
   "service": "gitlab",
   "serviceUrl": "https://gitlab.com",
+  "enableCommitSha": true
+}
+```
+
+**Example**
+```
+{
+  "service": "github",
+  "serviceUrl": "https://github.com",
+  "sections": [
+    {
+      "title": ":star2: New Features",
+      "labels": ["feature"]
+    },  
+    {
+      "title": ":bug: Bug Fixes",
+      "labels": ["bug"]
+    },
+    {
+      "title": ":barber: Tasks",
+      "labels": ["task"]
+    },
+    {
+      "title": ":lock: Security Fixes",
+      "labels": ["security"]
+    },
+    {
+      "title": ":arrow_up: Dependency Upgrades",
+      "labels": ["dependency-upgrade"]
+    }
+  ],
+  "enableContributorsSection": true,
+  "contributorsToExclude": ["renovate_bot"],
+  "contributorTitle": ":heart: Contributors\nWe'd like to thank all the contributors who worked on this milestone!",
+  "enableExternalIssuesTracker": false,
   "enableCommitSha": true
 }
 ```

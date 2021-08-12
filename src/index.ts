@@ -1,12 +1,11 @@
 import { Command, flags } from '@oclif/command';
 import * as dotenv from 'dotenv';
+import * as path from 'path';
 
 import { read } from './configReader';
 
 import ChangelogGenerator = require('./changelogGenerator');
 import GitFactory = require('./gitFactory');
-
-import path = require('path');
 
 class GitCG extends Command {
   static description = 'Git Changelog Generator';
