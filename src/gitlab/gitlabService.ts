@@ -1,11 +1,9 @@
-import Url = require('url');
-import Path = require('path');
+import * as path from 'path';
+import { gql, GraphQLClient } from 'graphql-request';
 
 import GitService = require('../gitService');
 import Config = require('../interfaces/config');
 import MergeRequest = require('../interfaces/milestone');
-
-import { gql, GraphQLClient } from 'graphql-request';
 
 class GitLabService extends GitService {
   #client: GraphQLClient;
@@ -46,12 +44,7 @@ class GitLabService extends GitService {
 
     const data = await this.#client.request(query);
 
-    if (data.project === null) {
-      console.error(
-        'Unable to retrieve data from your GitLab, please check that your GitLab token, projectPath and your serviceUrl are correct.',
-      );
-      process.exit(1);
-    }
+    this.validateRequestData(data);
 
     return data.project.mergeRequests.nodes.map((mergeRequest: any) => {
       const labels = mergeRequest.labels.nodes.map((label: any) => label.title);
@@ -67,10 +60,16 @@ class GitLabService extends GitService {
   }
 
   getCommitUrl(commitSha: string, projectPath: string): string {
-    const commitUrl = new Url.URL(this.config.serviceUrl);
-    commitUrl.pathname = Path.join(projectPath, '-', 'commit', commitSha);
+    return new URL(path.join(projectPath, '-', 'commit', commitSha), this.config.serviceUrl).toString();
+  }
 
-    return commitUrl.toString();
+  private validateRequestData(data: any): void {
+    if (data.project === null) {
+      console.error(
+        'Unable to retrieve data from your GitLab, please check that your GitLab token, projectPath and your serviceUrl are correct.',
+      );
+      process.exit(1);
+    }
   }
 }
 
